@@ -2,9 +2,8 @@ FROM dengrocrm/baseimage-alpine:latest
 MAINTAINER dandengro
 LABEL maintainer="dandengro"
 
-# install packages
 RUN \
-    # install additional runtime packages
+    # install runtime packages
     apk add --no-cache \
         apache2-utils \
         composer \
@@ -51,9 +50,11 @@ RUN \
     rm -rf \
     /tmp/*
 
-# add local files
+# Copy local files
 COPY root/ /
 
-# ports and volumes
-EXPOSE 80 443
+# Expose port
+EXPOSE 80
+
+# Create config dir
 VOLUME /config
