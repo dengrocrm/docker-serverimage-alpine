@@ -10,7 +10,7 @@ Note that this image does not contain any application code. Run the following co
 
 # Building and publishing
 
-Images are built automatically when pushed to Github, the following is here for reference purposes.
+**Images are built automatically when pushed to Github, the following is here for reference purposes.**
 
 Build the image by run the following command:
 
