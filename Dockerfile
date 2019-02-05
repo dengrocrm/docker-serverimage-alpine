@@ -1,4 +1,4 @@
-FROM dengroltd/baseimage-alpine:latest
+FROM dengrocrm/baseimage-alpine:latest
 MAINTAINER dandengro
 LABEL maintainer="dandengro"
 
