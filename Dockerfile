@@ -11,6 +11,8 @@ RUN \
         libressl2.7-libssl \
         logrotate \
         nginx \
+        nodejs \
+        npm \
         openssl \
         php7 \
         php7-cli \
@@ -53,8 +55,8 @@ RUN \
 # Copy local files
 COPY root/ /
 
-# Expose port
-EXPOSE 80
+# Expose ports
+EXPOSE 80 443
 
 # Create config dir
 VOLUME /config
