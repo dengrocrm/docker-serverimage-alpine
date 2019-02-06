@@ -3,6 +3,10 @@ MAINTAINER dandengro
 LABEL maintainer="dandengro"
 
 RUN \
+# install build packages
+    apk add --no-cache --virtual=build-dependencies \
+        curl \
+        tar && \
     # install runtime packages
     apk add --no-cache \
         apache2-utils \
@@ -11,8 +15,8 @@ RUN \
         libressl2.7-libssl \
         logrotate \
         nginx \
-        nodejs \
-        npm \
+        # nodejs \
+        # npm \
         openssl \
         php7 \
         php7-cli \
@@ -48,9 +52,20 @@ RUN \
     rm -f /etc/nginx/conf.d/default.conf && \
     # fix logrotate
     sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf && \
+    # install node v8
+    curl -o \
+        /tmp/node-v8.15.0-linux-x64.tar.gz -L \
+        "https://nodejs.org/dist/latest-v8.x/node-v8.15.0-linux-x64.tar.gz" && \
+    tar xfz \
+        /tmp/node-v8.15.0-linux-x64.tar.gz -C /tmp && \
+    mv /tmp/node-v8.15.0-linux-x64/bin/node /usr/local/bin/ && \
+    mv /tmp/node-v8.15.0-linux-x64/bin/npm /usr/local/bin/ && \
+    mv /tmp/node-v8.15.0-linux-x64/bin/npx /usr/local/bin/ && \
     # cleanup
+    apk del --purge \
+        build-dependencies && \
     rm -rf \
-    /tmp/*
+        /tmp/*
 
 # Copy local files
 COPY root/ /
