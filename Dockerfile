@@ -13,6 +13,7 @@ RUN \
         nginx \
         nodejs \
         npm \
+        mariadb-client \
         openssl \
         php7 \
         php7-cli \

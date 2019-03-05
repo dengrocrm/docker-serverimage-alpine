@@ -12,6 +12,8 @@ mkdir -p \
 	cp /defaults/nginx.conf /config/nginx/nginx.conf
 [[ ! -f /config/nginx/site-confs/default ]] && \
 	cp /defaults/default /config/nginx/site-confs/default
+[[ ! -f /config/php/php-local.ini ]] && \
+    cp /defaults/php-local.ini /config/php/php-local.ini
 [[ $(find /config/www -type f | wc -l) -eq 0 ]] && \
 	cp /defaults/index.html /config/www/index.html
 
