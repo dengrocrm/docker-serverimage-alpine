@@ -19,6 +19,7 @@ RUN \
         php7-cli \
         php7-common \
         php7-curl \
+        php7-ctype \
         php7-dev \
         php7-dom \
         php7-fileinfo \
