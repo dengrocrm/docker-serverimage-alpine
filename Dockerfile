@@ -43,15 +43,15 @@ RUN \
         php7-xmlwriter \
         php7-xdebug \
         php7-zip \
-        php7-zlib && \
+        php7-zlib \
+        yarn \
     # configure nginx
-    echo 'fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;' >> \
-        /etc/nginx/fastcgi_params && \
-    rm -f /etc/nginx/conf.d/default.conf && \
+    && echo 'fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;' >> /etc/nginx/fastcgi_params \
+    && rm -f /etc/nginx/conf.d/default.conf \
     # fix logrotate
-    sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf && \
+    && sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf \
     # # cleanup
-    rm -rf \
+    && rm -rf \
         /tmp/*
 
 # Copy local files
