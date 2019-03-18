@@ -8,6 +8,7 @@ RUN \
         apache2-utils \
         composer \
         git \
+        gnu-libiconv \
         libressl2.7-libssl \
         logrotate \
         nginx \
@@ -25,6 +26,7 @@ RUN \
         php7-fileinfo \
         php7-fpm \
         php7-gd \
+        php7-iconv \
         php7-intl \
         php7-json \
         php7-mbstring \
