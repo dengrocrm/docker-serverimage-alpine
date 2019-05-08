@@ -15,6 +15,12 @@ RUN \
         nodejs \
         npm \
         mariadb-client \
+        freetype \
+        libpng \
+        libjpeg-turbo \
+        freetype-dev \
+        libpng-dev \
+        libjpeg-turbo-dev \
         openssl \
         php7 \
         php7-cli \
