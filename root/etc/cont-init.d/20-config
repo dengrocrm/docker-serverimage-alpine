@@ -33,9 +33,19 @@ sed -i "s#group = nobody.*#group = abc#g" /etc/php7/php-fpm.d/www.conf
 # copy user www2.conf to image
 cp /config/php/www2.conf /etc/php7/php-fpm.d/www2.conf
 
-echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini
-echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini
-echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini
+# Check if we are in debug mode and enable xdebug if so
+DEBUG=${DEBUG:-false}
+if [ "${DEBUG}" == "true" ]; then
+	echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini
+	echo "xdebug.remote_enable=1" >> /usr/local/etc/php/conf.d/xdebug.ini
+	echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini
+	echo "xdebug.remote_host=${XDEBUG_HOST}" >> /usr/local/etc/php/conf.d/xdebug.ini
+	echo "xdebug.remote_port=9000" >> /usr/local/etc/php/conf.d/xdebug.ini
+	echo "xdebug.idekey=PHPSTORM" >> /usr/local/etc/php/conf.d/xdebug.ini
+	echo "xdebug.show_error_trace=1" >> /usr/local/etc/php/conf.d/xdebug.ini
+	echo "xdebug.remote_autostart=0" >> /usr/local/etc/php/conf.d/xdebug.ini
+	echo "xdebug.file_link_format=phpstorm://open?%f:%l" >> /usr/local/etc/php/conf.d/xdebug.ini
+fi
 
 # permissions
 chown -R abc:abc \
