@@ -33,6 +33,10 @@ sed -i "s#group = nobody.*#group = abc#g" /etc/php7/php-fpm.d/www.conf
 # copy user www2.conf to image
 cp /config/php/www2.conf /etc/php7/php-fpm.d/www2.conf
 
+echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini
+echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini
+echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini
+
 # permissions
 chown -R abc:abc \
 	/config \
