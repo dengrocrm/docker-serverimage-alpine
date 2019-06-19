@@ -7,6 +7,7 @@ RUN \
     apk add --no-cache \
         apache2-utils \
         composer \
+        freetype \
         git \
         gnu-libiconv \
         libressl2.7-libssl \
@@ -15,7 +16,6 @@ RUN \
         nodejs \
         npm \
         mariadb-client \
-        freetype \
         libpng \
         libjpeg-turbo \
         freetype-dev \
