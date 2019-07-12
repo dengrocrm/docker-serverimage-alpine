@@ -7,7 +7,7 @@ server {
     ssl_certificate /config/keys/cert.crt;
     ssl_certificate_key /config/keys/cert.key;
 
-    root /app/public;
+    root /app/src/public;
     index index.html index.htm index.php;
 
     # Set charset to UTF-8
