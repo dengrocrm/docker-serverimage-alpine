@@ -10,7 +10,7 @@ RUN \
         freetype \
         git \
         gnu-libiconv \
-        libressl2.7-libssl \
+        libressl2.9-libssl \
         logrotate \
         nginx \
         nodejs \
