@@ -21,6 +21,7 @@ RUN \
         freetype-dev \
         libpng-dev \
         libjpeg-turbo-dev \
+        openssh \
         openssl \
         php7 \
         php7-cli \
