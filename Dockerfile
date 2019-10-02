@@ -24,6 +24,7 @@ RUN \
         openssh \
         openssl \
         php7 \
+        php7-bcmath \
         php7-cli \
         php7-common \
         php7-curl \
