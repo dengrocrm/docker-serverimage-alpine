@@ -15,7 +15,6 @@ RUN \
         nginx \
         nodejs \
         npm \
-        mariadb-client \
         libpng \
         libjpeg-turbo \
         freetype-dev \
@@ -43,20 +42,16 @@ RUN \
         php7-openssl \
         php7-pdo \
         php7-pdo_mysql \
-        php7-pdo_sqlite \
         php7-pgsql \
         php7-session \
         php7-simplexml \
         php7-soap \
-        php7-sqlite3 \
         php7-tokenizer \
         php7-xml \
         php7-xmlreader \
         php7-xmlwriter \
-        php7-xdebug \
         php7-zip \
         php7-zlib \
-        sqlite \
         yarn \
     # configure nginx
     && echo 'fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;' >> /etc/nginx/fastcgi_params \
