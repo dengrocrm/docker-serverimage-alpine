@@ -10,7 +10,7 @@ RUN \
         freetype \
         git \
         gnu-libiconv \
-        libressl2.9-libssl \
+        libressl-dev \
         logrotate \
         nginx \
         nodejs \
@@ -54,6 +54,7 @@ RUN \
         php7-xdebug \
         php7-zip \
         php7-zlib \
+        sqlite \
         yarn \
     # configure nginx
     && echo 'fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;' >> /etc/nginx/fastcgi_params \
